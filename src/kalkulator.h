@@ -24,7 +24,7 @@ public:
 	Kalkulator();
 	~Kalkulator();
 	float calculate(char,float,float);
-	float solveLogic(string, float, float);
+
 	void calculateAll();
 	void solveLogicAll();
 	void run();

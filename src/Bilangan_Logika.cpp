@@ -27,13 +27,13 @@ Bilangan_Logika::Bilangan_Logika(string s)
 
 Bilangan_Logika::~Bilangan_Logika() {}
 
-void Bilangan_Logika::set(float i)
+void Bilangan_Logika::set(const float &i)
 {
     set_angka(i);
     convert();
 }
 
-void Bilangan_Logika::set(string s)
+void Bilangan_Logika::set(const string& s)
 {
     set_angka(retConvertToFloat(s));
 }
@@ -62,15 +62,25 @@ float Bilangan_Logika::retConvertToFloat(string s)
     return -1;
 }
 
-
 string Bilangan_Logika::retConvertToString(float f)
 {
     switch ((int)f) {
         case 0:
-            return "true";
-        case 1:
             return "false";
+        case 1:
+            return "true";
         default:
             return "error";
     }
+}
+
+float Bilangan_Logika::solveLogic(string opr, float opn1, float opn2){
+	if(opr == "and" || opr == "&&")
+		return opn1 && opn2;
+	else if(opr == "or" || opr == "||")
+		return opn1 || opn2;
+	else if(opr == "xor"){
+        return (opn1 && !opn2) || (!opn1 && opn2);
+	}
+
 }

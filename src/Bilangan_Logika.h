@@ -20,13 +20,16 @@ public :
     Bilangan_Logika(string);
     ~Bilangan_Logika();
 
-    void set(float);
-    void set(string);
+    void set(const float&);
+    void set(const string&);
+    float solveLogic(string, float, float);
+
+    float retConvertToFloat(string);
+    string retConvertToString(float);
+
 protected :
     void convert();
     string retProccess(string);
-    float retConvertToFloat(string);
-    string retConvertToString(float);
 };
 
 #endif /* defined(__CalculatorOOP__Bilangan_Logika__) */

@@ -1,46 +1,61 @@
+/**
+* @file ekspresi.cpp
+**/
+
 #include "ekspresi.h"
 #include <sstream>
 
 using namespace std;
+/**
+* @class Ekspresi
+* @author M. Azwar Adli (13514601)
+* @version 1.0
+*
+* @brief Kelas Ekspresi bertugas untuk mengenali dan mengolah ekspresi masukkan
+**/
 
+/**
+* @brief Konstruktor kelas Ekspresi
+**/
 Ekspresi::Ekspresi(){
 	s = "";
 }
 
+/**
+* @brief Setter untuk mengubah input.
+* @param _s - string input
+**/
 Ekspresi::Ekspresi(string _s){
 	s = _s;
 }
 
-Ekspresi::Ekspresi(const Ekspresi& E){
-	s = E.s;
-}
-
-Ekspresi& Ekspresi::operator=(const Ekspresi& E){
-	s = E.s;
-
-	return *this;
-}
-
+/**
+* @brief Destruktor kelas saver.
+**/
 Ekspresi::~Ekspresi(){
 	s = "";
 }
 
+/**
+* @brief Getter untuk mendapatkan string input.
+* @return s - string input.
+**/
 string Ekspresi::getString(){
 	return s;
 }
 
-float Ekspresi::getHasil(){
-	return hasil;
-}
-
+/**
+* @brief Setter untuk mengubah input.
+* @param s - string input
+**/
 void Ekspresi::setString(string _s){
 	s = _s;
 }
 
-void Ekspresi::setHasil(float _hasil){
-	hasil = _hasil;
-}
-
+/**
+* @brief Fungsi untuk membaca ekspresi dalam ekspresi prefix
+* @return s - array of string yang telah diparse
+**/
 string* Ekspresi::fromPrefix(int* ekssize){
 	stringstream ss(s);
 	int jumlah = 1;
@@ -81,6 +96,10 @@ string* Ekspresi::fromPrefix(int* ekssize){
 	return s;
 }
 
+/**
+* @brief Fungsi untuk membaca ekspresi dalam ekspresi infix
+* @return s - array of string yang telah diparse
+**/
 string* Ekspresi::fromInfix(int *ekssize){
     stringstream ss(s);
 
@@ -150,6 +169,10 @@ string* Ekspresi::fromInfix(int *ekssize){
 	return sPost;
 }
 
+/**
+* @brief Fungsi untuk membaca ekspresi dalam ekspresi postfix
+* @return s - array of string yang telah diparse
+**/
 string* Ekspresi::fromPostfix(int* ekssize){
     stringstream ss(s);
 

@@ -1,3 +1,7 @@
+/**
+* @file ekspresi.h
+**/
+
 #ifndef EKSPRESI_H
 #define EKSPRESI_H
 #include <string>
@@ -7,56 +11,60 @@
 #include "kalkulator.h"
 
 using namespace std;
-
+/**
+* @class Ekspresi
+* @author M. Azwar Adli (13514601)
+* @version 1.0
+*
+* @brief Kelas Ekspresi bertugas untuk mengenali dan mengolah ekspresi masukkan
+**/
 class Ekspresi{
 public:
+    /**
+    * @brief Konstruktor kelas Ekspresi.
+    **/
 	Ekspresi();
-	Ekspresi(string);
-	Ekspresi(const Ekspresi&);
-	Ekspresi& operator=(const Ekspresi&);
+	/**
+    * @brief Konstruktor kelas Ekspresi dengan parameter.
+    * @param s - string berupa masukkan file yang akan diolah.
+    **/
+	Ekspresi(string s);
+	/**
+    * @brief Destruktor kelas saver.
+    **/
 	~Ekspresi();
 
-	//getter
+    /**
+    * @brief Getter untuk mendapatkan string input.
+    * @return s - string input.
+    **/
 	string getString();
-	float getHasil();
 
-	//setter
-	void setString(string);
-	void setHasil(float);
+	/**
+	* @brief Setter untuk mengubah input.
+	* @param s - string input
+	**/
+	void setString(string s);
 
-	//fungsi ekspresi
+	/**
+	* @brief Fungsi untuk membaca ekspresi dalam ekspresi prefix
+	* @return s - array of string yang telah diparse
+	**/
 	string* fromPrefix(int*);
+
+	/**
+	* @brief Fungsi untuk membaca ekspresi dalam ekspresi infix
+	* @return s - array of string yang telah diparse
+	**/
 	string* fromInfix(int*);
+	/**
+	* @brief Fungsi untuk membaca ekspresi dalam ekspresi postfix
+	* @return s - array of string yang telah diparse
+	**/
 	string* fromPostfix(int*);
-	//virtual void Konversi() = 0
 
 private:
-	string s;
-	float hasil;
-	//Stack S;	kalau return valuenya mau diganti stack
-	//string modeEkspresi;
+	string s;   //s adalah string input
 };
-
-/*class Prefix : public Ekspresi{
-public:
-	Prefix();
-	Prefix(const Prefix&);
-	Prefix& operator=(const Prefix&);
-	~Prefix();
-	void Representasi();
-	// void Konversi();
-};
-
-class Infix : public Ekspresi{
-public:
-	void Representasi(string);
-	// void Konversi();
-};
-
-class Postfix : public Ekspresi{
-public:
-	void Representasi(string);
-	// void Konversi();
-};*/
 
 #endif

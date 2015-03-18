@@ -1,3 +1,7 @@
+/**
+* @file stack.h
+**/
+
 #ifndef STACK_H
 #define STACK_H
 #include <iostream>
@@ -5,11 +9,25 @@
 #include <cassert>
 
 using namespace std;
+/**
+* @class Stack Generik
+* @author M. Azwar Adli (13514601)
+* @version 1.0
+*
+* @brief Kelas Stack berfungsi sebagai collection
+**/
 
 template <class T>
 class Stack{
 public:
+    /**
+    * @brief Konstruktor kelas Stack
+    **/
 	Stack();
+	/**
+    * @brief Konstruktor kelas Stack dengan parameter.
+    * @param s - string berupa masukkan file yang akan diolah.
+    **/
 	Stack(int);
 	Stack(const Stack&);
 	Stack& operator=(const Stack&);

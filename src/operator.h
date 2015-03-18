@@ -20,8 +20,6 @@ public:
 	~Aritmatika();
 	bool isOperator(string);
 	char getOpr(string);
-	float hitung(char opr, float opn1, float opn2);
-	float toFloat(char);
 	int cekPrecedence(string,string);
 	int getPrecedence(string);
 };

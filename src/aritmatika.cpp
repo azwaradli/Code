@@ -28,19 +28,6 @@ bool Aritmatika::isOperator(string s){
 		return false;
 }
 
-float Aritmatika::hitung(char opr, float opn1, float opn2){
-    if(opr == '+')
-		return opn1 + opn2;
-	else if(opr == '-')
-		return opn1 - opn2;
-	else if(opr == '/')
-		return opn1 / opn2;
-	else if(opr == '*')
-		return opn1 * opn2;
-    /*else if(opr == '%')
-        return opn1 % opn2;*/
-}
-
 char Aritmatika::getOpr(string s){
     if(s == "+")
 		return '+';

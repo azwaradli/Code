@@ -156,16 +156,6 @@ float Kalkulator::calculate(char opr, float opn1, float opn2){
 		return opn1 * opn2;
 }
 
-float Kalkulator::solveLogic(string opr, float opn1, float opn2){
-	if(opr == "and" || opr == "&&")
-		return opn1 && opn2;
-	else if(opr == "or" || opr == "||")
-		return opn1 || opn2;
-	else if(opr == "xor"){
-        return (opn1 && !opn2) || (!opn1 && opn2);
-	}
-}
-
 void Kalkulator::calculateAll(){
     Ekspresi e(input);
     string *eks;
@@ -208,11 +198,10 @@ void Kalkulator::calculateAll(){
 	string stemp = b->retConvertToString(hasil);
 	cout << "Hasil: " << stemp << " " << endl;
 	setHasil(stemp);
-
 }
 
 void Kalkulator::solveLogicAll(){
-    bilangan *L;
+    Bilangan_Logika *L;
     L = new Bilangan_Logika();
     int i=-1;
     string opn1,opn2,pch,opr;
@@ -221,17 +210,17 @@ void Kalkulator::solveLogicAll(){
         pch=split(input,' ');
         i++;
         if(pch=="and" || pch=="&&" || pch=="or" || pch=="||" || pch=="xor"){
-            opr=pch;
+            opr = pch;
             temp.pop(opn1);
-            pch=split(input,' ');
-            opn2=pch;
-            float x=solveLogic(opr,L.retConvertToFloat(opn1),L.retConvertToFloat(opn2));
-            cout<<endl<<L.retConvertToString(x)<<endl;
+            pch = split(input,' ');
+            opn2 = pch;
+            float x = L->solveLogic(opr,L->retConvertToFloat(opn1),L->retConvertToFloat(opn2));
+            cout << endl << L->retConvertToString(x) << endl;
         }
         else{
             temp.push(pch);
         }
-    }while(in.length());
+    }while(input.length());
 }
 
 void Kalkulator::run(){

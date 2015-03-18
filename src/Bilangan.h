@@ -32,6 +32,7 @@ public :
 
     //Method
     virtual string retConvertToString(float)= 0;
+    virtual float retConvertToFloat(string)= 0;
 
 protected :
 
@@ -43,9 +44,8 @@ protected :
 
     //method
     virtual void convert()= 0;     //abstract untuk melakukan convert dari int ke representasi
-    virtual float retConvertToFloat(string)= 0;
 
-    private :
+private :
     string representasi;
     float angka;
 };

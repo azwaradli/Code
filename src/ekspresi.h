@@ -3,6 +3,8 @@
 #include <string>
 #include "stack.h"
 #include "operator.h"
+#include "Bilangan.h"
+#include "kalkulator.h"
 
 using namespace std;
 
@@ -16,22 +18,22 @@ public:
 
 	//getter
 	string getString();
-	float getHasil();	
+	float getHasil();
 
 	//setter
 	void setString(string);
 	void setHasil(float);
 
 	//fungsi ekspresi
-	float fromPrefix();
-	float fromInfix();
-	float fromPostfix();
+	string* fromPrefix(int*);
+	string* fromInfix(int*);
+	string* fromPostfix(int*);
 	//virtual void Konversi() = 0
 
 private:
 	string s;
 	float hasil;
-	//Stack S;	kalau return valuenya mau diganti stack	
+	//Stack S;	kalau return valuenya mau diganti stack
 	//string modeEkspresi;
 };
 

@@ -6,9 +6,11 @@ using namespace std;
 
 class Operator{
 public:
-	Operator();
-	~Operator();
+	Operator(){
+	}
+	~Operator(){}
 	virtual bool isOperator(string) = 0;
+	virtual char getOpr(string) = 0;
 };
 
 
@@ -17,10 +19,11 @@ public:
 	Aritmatika();
 	~Aritmatika();
 	bool isOperator(string);
-	float operator+();
-	float operator-();
-	float operator*();
-	float operator/(float);
+	char getOpr(string);
+	float hitung(char opr, float opn1, float opn2);
+	float toFloat(char);
+	int cekPrecedence(string,string);
+	int getPrecedence(string);
 };
 
 class Logika : public Operator{
@@ -28,6 +31,7 @@ public:
 	Logika();
 	~Logika();
 	bool isOperator(string);
+	char getOpr(string);
 };
 
 #endif

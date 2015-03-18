@@ -1,4 +1,5 @@
 #include "operator.h"
+#include <cassert>
 
 Aritmatika::Aritmatika(){
 
@@ -8,22 +9,72 @@ Aritmatika::~Aritmatika(){
 
 }
 
-char Aritmatika::isOperator(string s){
-
+bool Aritmatika::isOperator(string s){
+	if(s == "+")
+		return true;
+	else if(s == "-")
+		return true;
+	else if(s == "*")
+		return true;
+	else if(s == "/")
+		return true;
+	else if(s == "%")
+		return true;
+    else if(s == "(")
+        return true;
+    else if(s == ")")
+        return true;
+	else
+		return false;
 }
 
-float Aritmatika::operator+(){
-	// return a + b;
+float Aritmatika::hitung(char opr, float opn1, float opn2){
+    if(opr == '+')
+		return opn1 + opn2;
+	else if(opr == '-')
+		return opn1 - opn2;
+	else if(opr == '/')
+		return opn1 / opn2;
+	else if(opr == '*')
+		return opn1 * opn2;
+    /*else if(opr == '%')
+        return opn1 % opn2;*/
 }
 
-float Aritmatika::operator-(){
-	// return a - b;
+char Aritmatika::getOpr(string s){
+    if(s == "+")
+		return '+';
+	else if(s == "-")
+		return '-';
+	else if(s == "/")
+		return '/';
+	else if(s == "*")
+		return '*';
 }
 
-float Aritmatika::operator*(){
-	// return a * b;
+
+
+int Aritmatika::getPrecedence(string s){
+    if(s == "(")
+        return 0;
+    else if(s == "*" || s == "/")
+        return 2;
+    else if(s == "+" || s == "-")
+        return 1;
+    else
+        assert(false);
 }
 
-float Aritmatika::operator/(float a){
-	// return a / b;
+int Aritmatika::cekPrecedence(string opr1, string opr2){
+    int a,b;
+    a = getPrecedence(opr1);
+    b = getPrecedence(opr2);
+    if(a < b)
+        return 1;   // precendece opr1 lebih besar dari opr2
+    else if(a == b)
+        return 2;   // precedence opr1 sama dengan opr2
+    else if(a > b)
+        return 3;   // precedence opr1 lebih besar dari opr2
+    else
+        assert(false);
 }
